@@ -95,7 +95,7 @@ export const Navbar = ({ children }) => {
               onClick={handelDotMovement}
               id="about"
             >
-              About
+              Sobre
             </NavbarItem>
           </li>
           <li>
