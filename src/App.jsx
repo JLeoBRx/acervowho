@@ -1,26 +1,22 @@
-import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import { Navbar } from "./components/Navbar";
+import { About } from "./pages/About";
+import { Contact } from "./pages/Contact";
+import { Experience } from "./pages/Experience";
+import { Home } from "./pages/home";
+import { Projects } from "./pages/Projects";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
-
-const App = () => {
+function App() {
   return (
-    <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
+    <div className="App">
+      <Navbar>
+        <Home />
+        <Projects />
         <Experience />
-        <Tech />
-        <Works />
-        <Feedbacks />
-        <div className='relative z-0'>
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
-    </BrowserRouter>
+        <About />
+        <Contact />
+      </Navbar>
+    </div>
   );
 }
 

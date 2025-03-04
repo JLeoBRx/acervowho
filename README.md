@@ -1,22 +1,45 @@
-# Build and Deploy a Fantastic 3D Portfolio Website with Three.js and React.js
-![3D Portfolio](https://i.ibb.co/9ykhLtM/Thumbnail.png)
-<hr>
-##Live:https://osamaayubportfoliowebsite.netlify.app/
+# My Portfolio
 
-## Introduction
-The most impressive websites in the world use 3D graphics and animations to bring their content to life. Learn how to build your own ThreeJS 3D Developer Portfolio today! 
- 
-In this course, you'll learn the following:
-- ThreeJS - a powerful 3D graphics library for rendering and animating the 3D model
-- React Three Fiber - a popular library for creating 3D graphics with ThreeJS in React
-- TailwindCSS - a popular utility-first CSS styling framework
-- Framer Motion - the most popular library used to bring your React website to life with animations
-You'll also learn how to:
-- Load, create and customize stunning 3D models and geometries with various lights, as well as understand the 3D world with a camera and positioning of an object in space.
-- Make your code reusable and scalable using Higher Order Components (HOCs) and other industry-standard best practices
-- Implement sending emails through a form on the website
-- Ensure responsiveness across all devices and improve your site's performance using Suspense and Preload.
+## Description
+Welcome to my Software Engineering Portfolio! This project showcases my skills and projects in software engineering, built with ReactJS and ThreeJS. It's designed to provide an interactive and engaging user experience, highlighting my proficiency in modern web development technologies.
 
-## Want to land your dream programming job in 3 - 6 months?
-⭐ JSM Masterclass Experience - https://jsmastery.pro/masterclass
-Become a Software Engineer. Guaranteed.
+## Features
+- **Interactive 3D Elements**: Utilizing ThreeJS for dynamic and responsive 3D graphics.
+- **Responsive Design**: Crafted to provide a seamless experience on various devices and screen sizes.
+- **Project Showcase**: Detailed information about my software engineering projects, including descriptions, technologies used, and links to live demos or code repositories.
+
+## Getting Started
+
+### Prerequisites
+- Node.js and npm (Node Package Manager) installed on your system. You can download them from [Node.js official website](https://nodejs.org/).
+
+### Installing
+To get a local copy up and running, follow these simple steps:
+
+```bash
+# Clone the repository
+git clone https://github.com/teshank2137/portfolio.git
+
+# Navigate to the project directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run the application
+npm run dev
+```
+
+## Usage
+After running the application, you can navigate through the portfolio to explore my software engineering projects. The interactive 3D elements powered by ThreeJS can be interacted with to gain a dynamic view of my skills and experiences.
+
+## Credit/Attribution
+If you are using this code or any part of it in your projects, I kindly request that you give proper credit by linking back to my portfolio or GitHub repository. Please include the following line in your project's documentation or credits section:
+
+"Portions of this code were developed by Teshank Raut. You can find the original project at https://teshank.dev or https://github.com/teshank2137/portfolio."
+
+## License
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
+
+
+For more information about the Apache License 2.0, please visit [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).

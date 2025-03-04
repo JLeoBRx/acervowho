@@ -1,102 +1,117 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import gsap from "gsap";
+import Flip from "gsap/Flip";
+import React, { useEffect, useRef, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { NavbarContext } from "../context";
+import { CloseButton, MenuButton } from "./form";
+import { StyledNavbar } from "./Navbar.styled";
+import { NavbarItem, Penguin } from "./ui";
 
-import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+export const Navbar = ({ children }) => {
+  const activeDot = useRef(null);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [currentPage, setCurrentPage] = useState(null);
+  const [navBarVisible, setNavBarVisible] = useState(false);
 
-const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const handelDotMovement = (e) => {
+    setIsScrolling(true);
+    if (e.scroll !== false) {
+      document.getElementById(`${e.target.id}-page`).scrollIntoView();
+    }
+
+    const state = Flip.getState(activeDot.current);
+    e.target.appendChild(activeDot.current);
+    document.querySelectorAll(".navbar-item").forEach((el) => {
+      el.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    Flip.from(state, {
+      duration: 0.5,
+      absolute: true,
+      ease: "elastic.out(1,0.8)",
+    });
+    setIsScrolling(false);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+    if (currentPage && isScrolling === false) {
+      handelDotMovement({
+        target: document.getElementById(currentPage),
+        scroll: false,
+      });
+    }
+  }, [currentPage]);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+  useEffect(() => {
+    gsap.registerPlugin(Flip);
   }, []);
 
   return (
-    <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
-      }`}
-    >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link
-          to='/'
-          className='flex items-center gap-2'
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Osama &nbsp;
-            <span className='sm:block hidden'> | Osama Ayub</span>
-          </p>
-        </Link>
-
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+    <>
+      <MenuButton
+        className={navBarVisible ? "" : "active"}
+        onClick={() => setNavBarVisible(true)}
+      >
+        <AiOutlineMenu size="30" />
+      </MenuButton>
+      <StyledNavbar className={navBarVisible ? "active" : ""}>
+        <CloseButton onClick={() => setNavBarVisible(false)}>
+          <AiOutlineClose size={30} />
+        </CloseButton>
+        <ul>
+          <li>
+            <NavbarItem
+              className="navbar-item"
+              onClick={handelDotMovement}
+              id="projects"
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
+              Projects
+            </NavbarItem>
+          </li>
+          <li>
+            <NavbarItem
+              className="navbar-item"
+              onClick={handelDotMovement}
+              id="experience"
+            >
+              Experiences
+            </NavbarItem>
+          </li>
+          <li className="home_navbar-item">
+            <NavbarItem
+              className="navbar-item"
+              onClick={(e) => {
+                handelDotMovement({ target: document.getElementById("home") });
+              }}
+              id="home"
+            >
+              <Penguin />
+              <div className="dot" ref={activeDot} />
+            </NavbarItem>
+          </li>
+          <li>
+            <NavbarItem
+              className="navbar-item"
+              onClick={handelDotMovement}
+              id="about"
+            >
+              About
+            </NavbarItem>
+          </li>
+          <li>
+            <NavbarItem
+              className="navbar-item"
+              onClick={handelDotMovement}
+              id="contact"
+            >
+              Contact
+            </NavbarItem>
+          </li>
         </ul>
-
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
-          <img
-            src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
-            onClick={() => setToggle(!toggle)}
-          />
-
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-          >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+      </StyledNavbar>
+      <NavbarContext.Provider value={setCurrentPage}>
+        {children}
+      </NavbarContext.Provider>
+    </>
   );
 };
-
-export default Navbar;
