@@ -31,8 +31,13 @@ const StyledLayout = styled(Grid)`
 `;
 
 export const Page = ({ children, header }) => {
+  // Se o header for "Sobre", usamos "About" no ID para evitar conflitos
+  const normalizedHeader = header.toLowerCase() === "sobre" ? "about" : header.toLowerCase();
+
+  console.log("Header recebido:", header); // Apenas para debug
+
   return (
-    <StyledLayout id={`${header.toLowerCase()}-page`}>
+    <StyledLayout id={`${normalizedHeader}-page`}>
       <>
         <PageHeader>{header.toUpperCase()}</PageHeader>
         {children}
