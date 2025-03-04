@@ -42,10 +42,10 @@ export const Home = () => {
       <TextContainer>
         <Name>Acervo Who</Name>
         <Position>
-          <div className="text first" aria-label="Full Stack Developer">
+          <div className="text first" aria-label="Obras Whovians Traduzidas">
             {produceSpans("Full Stack Developer")}
           </div>
-          <div className="text second" aria-label="UI/UX Enthusiast">
+          <div className="text second" aria-label="Obras Whovains Legendadas">
             {produceSpans("UI/UX Enthusiast")}
           </div>
         </Position>
