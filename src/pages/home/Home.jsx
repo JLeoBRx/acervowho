@@ -43,10 +43,10 @@ export const Home = () => {
         <Name>Acervo Who</Name>
         <Position>
           <div className="text first" aria-label="Obras Whovians Traduzidas">
-            {produceSpans("Full Stack Developer")}
+            {produceSpans("Traduções Whovians")}
           </div>
           <div className="text second" aria-label="Obras Whovains Legendadas">
-            {produceSpans("UI/UX Enthusiast")}
+            {produceSpans("Legendas Whovians")}
           </div>
         </Position>
       </TextContainer>
