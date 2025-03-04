@@ -49,7 +49,7 @@ export const About = () => {
       <Page header="About">
         <Text>
           <Paragraph>
-            Este site nasceu para hospedar os audiodrmas da série Doctor Who
+            Este site nasceu para hospedar os audiodramas da série Doctor Who
             das quais realizo tradução e legendas, permitindo acesso livre para os fãs. 
             Todo material é livre para compartilhar sem necessário citar fonte.
             <br />Você também encontrará as traduções da revista Magazine Doctor Who,
