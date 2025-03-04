@@ -46,7 +46,7 @@ export const About = () => {
   }, []);
   return (
     <div ref={ref}>
-      <Page header="Sobre">
+      <Page header="About">
         <Text>
           <Paragraph>
             Este site nasceu para hospedar os audiodramas da série Doctor Who
