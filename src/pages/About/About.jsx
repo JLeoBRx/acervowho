@@ -49,12 +49,12 @@ export const About = () => {
       <Page header="About">
         <Text>
           <Paragraph>
-            I'm a passionate programmer, who is always looking for new
-            challenges to improve myself, also a team player, who is always
-            ready to learn new things and help others.
-            <br />I was born and raised in Nagpur, India. I love to play guitar
-            and ukulele and in my free time I like to read books, watch movies
-            and play video games.
+            Este site nasceu para hospedar os audiodrmas da série Doctor Who
+            das quais realizo tradução e legendas, permitindo acesso livre para os fãs. 
+            Todo material é livre para compartilhar sem necessário citar fonte.
+            <br />Você também encontrará as traduções da revista Magazine Doctor Who,
+            que traduço diariamente, visando o objetivo de traduzir todas as revistas de 2025.
+            Seja bem vindo para acompanhar, participar ou até auxiliar. Fiquem à vontade!
           </Paragraph>
           <Educations>
             <AboutItem
