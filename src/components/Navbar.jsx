@@ -93,7 +93,7 @@ export const Navbar = ({ children }) => {
             <NavbarItem
               className="navbar-item"
               onClick={handelDotMovement}
-              id="about"
+              id="sobre"
             >
               Sobre
             </NavbarItem>
